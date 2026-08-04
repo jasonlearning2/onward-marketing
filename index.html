@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +15,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,300;0,8..144,400;0,8..144,500;0,8..144,600;0,8..144,700;1,8..144,300;1,8..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
+ 
 :root {
   --navy: #1E2761;
   --navy-light: #2D3B7A;
@@ -28,9 +29,9 @@
   --light-blue: #EEF0F8;
   --white: #FFFFFF;
 }
-
+ 
 html { scroll-behavior: smooth; }
-
+ 
 body {
   font-family: 'Inter', -apple-system, sans-serif;
   color: var(--dark);
@@ -38,9 +39,9 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
-
+ 
 .serif { font-family: 'Roboto Serif', Georgia, serif; }
-
+ 
 /* ── NAV ─────────────────────────────── */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -71,7 +72,7 @@ nav.scrolled {
   transition: transform 0.2s, box-shadow 0.2s;
 }
 .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(201,168,76,0.4); }
-
+ 
 /* ── HERO ─────────────────────────────── */
 .hero {
   position: relative;
@@ -130,7 +131,7 @@ nav.scrolled {
   transition: transform 0.2s;
 }
 .hero-cta:hover svg { transform: translateX(3px); }
-
+ 
 /* ── SECTION SCAFFOLDING ────────────── */
 section { padding: 6rem 2.5rem; }
 .section-inner { max-width: 1100px; margin: 0 auto; }
@@ -154,7 +155,7 @@ section { padding: 6rem 2.5rem; }
   width: 60px; height: 3px; background: var(--gold);
   margin: 1.5rem 0 2rem; border: none;
 }
-
+ 
 /* ── PROBLEM ──────────────────────────── */
 .problem { background: var(--white); }
 .problem-grid {
@@ -177,7 +178,7 @@ section { padding: 6rem 2.5rem; }
   font-size: 0.95rem; line-height: 1.65;
   color: var(--warm-gray);
 }
-
+ 
 /* ── HOW IT WORKS ─────────────────────── */
 .how { background: var(--warm-white); }
 .how-flow {
@@ -222,7 +223,7 @@ section { padding: 6rem 2.5rem; }
   font-size: 0.9rem; line-height: 1.6;
   color: var(--warm-gray);
 }
-
+ 
 /* ── DAILY EXPERIENCE ─────────────────── */
 .daily { background: var(--navy); color: var(--white); }
 .daily .section-heading { color: var(--white); }
@@ -310,7 +311,7 @@ section { padding: 6rem 2.5rem; }
   font-size: 0.85rem; line-height: 1.55;
   color: rgba(255,255,255,0.55);
 }
-
+ 
 /* ── ARC ──────────────────────────────── */
 .arc { background: var(--white); }
 .arc-track {
@@ -358,7 +359,7 @@ section { padding: 6rem 2.5rem; }
   font-size: 0.85rem; line-height: 1.55;
   color: var(--warm-gray); padding: 0 0.5rem;
 }
-
+ 
 /* ── SUPERINTENDENT ───────────────────── */
 .super { background: var(--warm-white); }
 .super-split {
@@ -396,7 +397,7 @@ section { padding: 6rem 2.5rem; }
   font-size: 0.9rem; line-height: 1.65;
   color: var(--navy); font-style: italic;
 }
-
+ 
 /* ── VOICES ───────────────────────────── */
 .voices { background: var(--navy); }
 .voices .section-heading { color: var(--white); }
@@ -427,7 +428,7 @@ section { padding: 6rem 2.5rem; }
 .voice-card cite span {
   font-size: 0.8rem; color: rgba(255,255,255,0.45);
 }
-
+ 
 /* ── FOUNDER ──────────────────────────── */
 .founder { background: var(--white); }
 .founder-split {
@@ -469,7 +470,7 @@ section { padding: 6rem 2.5rem; }
 .credential span {
   font-size: 0.75rem; color: var(--warm-gray);
 }
-
+ 
 /* ── CTA ──────────────────────────────── */
 .final-cta {
   background: var(--navy);
@@ -505,7 +506,7 @@ section { padding: 6rem 2.5rem; }
   color: var(--gold); margin-top: 2.5rem;
   position: relative; z-index: 2;
 }
-
+ 
 /* ── FOOTER ───────────────────────────── */
 footer {
   background: var(--navy-deep);
@@ -521,18 +522,25 @@ footer a {
   text-decoration: none;
 }
 footer a:hover { color: var(--gold); }
-
+ 
 /* ── MOBILE ───────────────────────────── */
 .mobile-toggle { display: none; background: none; border: none; cursor: pointer; }
-
+ 
 @media (max-width: 900px) {
-  .nav-links { display: none; }
+  .nav-links {
+    display: none;
+    position: absolute; top: 100%; left: 0; right: 0;
+    background: var(--navy);
+    flex-direction: column; padding: 1.2rem 1.5rem; gap: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .nav-links.open { display: flex; }
   .mobile-toggle { display: block; }
   .mobile-toggle svg { width: 24px; height: 24px; color: var(--white); }
-
+ 
   .hero-inner { padding: 7rem 1.5rem 4rem; }
   section { padding: 4rem 1.5rem; }
-
+ 
   .problem-grid, .voice-grid {
     grid-template-columns: 1fr;
   }
@@ -556,29 +564,29 @@ footer a:hover { color: var(--gold); }
   .founder-credentials { grid-template-columns: 1fr; }
   footer { flex-direction: column; gap: 0.5rem; text-align: center; }
 }
-
+ 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
 </style>
 </head>
 <body>
-
+ 
 <!-- NAV -->
 <nav id="nav">
   <a href="#" class="nav-logo">Onward<span>12</span></a>
-  <div class="nav-links">
+  <div class="nav-links" id="navLinks">
     <a href="#how">How It Works</a>
     <a href="#experience">The Experience</a>
     <a href="#arc">The 12-Week Arc</a>
     <a href="#superintendents">For Superintendents</a>
     <a href="https://app.onward12.com" class="nav-cta">Try Onward12</a>
   </div>
-  <button class="mobile-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').style.display = document.querySelector('.nav-links').style.display === 'flex' ? 'none' : 'flex'">
+  <button class="mobile-toggle" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
   </button>
 </nav>
-
+ 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
@@ -591,7 +599,7 @@ footer a:hover { color: var(--gold); }
     </a>
   </div>
 </section>
-
+ 
 <!-- PROBLEM -->
 <section class="problem" id="problem">
   <div class="section-inner">
@@ -614,7 +622,7 @@ footer a:hover { color: var(--gold); }
     </div>
   </div>
 </section>
-
+ 
 <!-- HOW IT WORKS -->
 <section class="how" id="how">
   <div class="section-inner">
@@ -641,7 +649,7 @@ footer a:hover { color: var(--gold); }
     </div>
   </div>
 </section>
-
+ 
 <!-- DAILY EXPERIENCE -->
 <section class="daily" id="experience">
   <div class="section-inner">
@@ -705,7 +713,7 @@ footer a:hover { color: var(--gold); }
     </div>
   </div>
 </section>
-
+ 
 <!-- THE ARC -->
 <section class="arc" id="arc">
   <div class="section-inner">
@@ -749,7 +757,7 @@ footer a:hover { color: var(--gold); }
     </div>
   </div>
 </section>
-
+ 
 <!-- SUPERINTENDENT -->
 <section class="super" id="superintendents">
   <div class="section-inner">
@@ -781,13 +789,13 @@ footer a:hover { color: var(--gold); }
           <li><span class="cross">✗</span> School people directory</li>
         </ul>
         <div class="privacy-note">
-          <p>Superintendents see evidence of leadership practice. They never see the interior of leadership growth. That boundary is what makes principals trust the tool enough to use it honestly. For more information about using Onward12 for your districtwide initiatives, email info@learning2innovate.com.</p>
+          <p>Superintendents see evidence of leadership practice. They never see the interior of leadership growth. That boundary is what makes principals trust the tool enough to use it honestly.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
-
+ 
 <!-- TESTIMONIALS -->
 <section class="voices">
   <div class="section-inner">
@@ -818,7 +826,7 @@ footer a:hover { color: var(--gold); }
     </div>
   </div>
 </section>
-
+ 
 <!-- FOUNDER -->
 <section class="founder" id="founder">
   <div class="section-inner">
@@ -828,7 +836,7 @@ footer a:hover { color: var(--gold); }
     <div class="founder-split">
       <div class="founder-bio">
         <h3>Jason Green</h3>
-        <p class="founder-title">Senior Director, AI Strategy and System Alignment, Educate Texas &middot; Co-Founder, Yourway Learning &middot; Bestelling Author, Speaker, Facilitator</p>
+        <p class="founder-title">President &amp; Co-Founder, Yourway Learning &middot; Chairperson, EdSafe AI Industry Council</p>
         <p>Jason has spent over a decade helping thousands of schools and districts reimagine teaching and learning. His work sits at a rare intersection — deep adult learning science research through a collaboration with Stanford University, hands-on implementation experience in classrooms across the country, and the product-building capability to translate insight into tools that work.</p>
         <p>Onward12 is the product of everything he has learned about what makes change actually stick in schools.</p>
       </div>
@@ -861,7 +869,7 @@ footer a:hover { color: var(--gold); }
     </div>
   </div>
 </section>
-
+ 
 <!-- FINAL CTA -->
 <section class="final-cta">
   <h2>Start leading change<br>confidently today.</h2>
@@ -872,20 +880,20 @@ footer a:hover { color: var(--gold); }
   </a>
   <p class="final-onward">Onward.</p>
 </section>
-
+ 
 <!-- FOOTER -->
 <footer>
   <p>&copy; 2026 Onward12 &middot; A product of Learning2Innovate, LLC</p>
   <a href="mailto:info@learning2innovate.com">info@learning2innovate.com</a>
 </footer>
-
+ 
 <script>
 // Nav scroll effect
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 60);
 });
-
+ 
 // Smooth scroll for nav links
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
@@ -894,11 +902,11 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
     // Close mobile menu
     if (window.innerWidth <= 900) {
-      document.querySelector('.nav-links').style.display = 'none';
+      document.getElementById('navLinks').classList.remove('open');
     }
   });
 });
-
+ 
 // Intersection Observer for fade-in
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -908,7 +916,7 @@ const observer = new IntersectionObserver((entries) => {
     }
   });
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
+ 
 document.querySelectorAll('.problem-card, .how-step, .voice-card, .arc-phase, .super-card, .credential').forEach(el => {
   el.style.opacity = '0';
   el.style.transform = 'translateY(20px)';
@@ -916,6 +924,7 @@ document.querySelectorAll('.problem-card, .how-step, .voice-card, .arc-phase, .s
   observer.observe(el);
 });
 </script>
-
+ 
 </body>
 </html>
+ 
