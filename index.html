@@ -414,11 +414,32 @@ section { padding: 6rem 2.5rem; }
   font-size: 0.95rem; line-height: 1.6;
   color: rgba(255,255,255,0.7); max-width: 480px;
 }
+.super-cta-action { display: flex; flex-direction: column; align-items: flex-end; gap: 0.7rem; flex-shrink: 0; }
 .super-cta-btn { flex-shrink: 0; }
+.super-cta-fallback {
+  font-size: 0.82rem; color: rgba(255,255,255,0.55);
+  display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+  justify-content: flex-end; max-width: none;
+}
+.super-cta-fallback a {
+  color: var(--gold); text-decoration: underline;
+  text-underline-offset: 2px; font-weight: 500;
+}
+.super-cta-fallback a:hover { color: var(--gold-light); }
+.copy-email-btn {
+  background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.75);
+  border: 1px solid rgba(255,255,255,0.25); border-radius: 5px;
+  font-size: 0.72rem; font-family: 'Inter', sans-serif; font-weight: 500;
+  padding: 0.2rem 0.55rem; cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.copy-email-btn:hover { background: rgba(255,255,255,0.18); color: var(--white); }
  
 @media (max-width: 700px) {
   .super-cta { padding: 2rem; text-align: center; justify-content: center; }
   .super-cta p { max-width: none; }
+  .super-cta-action { align-items: center; }
+  .super-cta-fallback { justify-content: center; }
 }
  
 /* ── VOICES ───────────────────────────── */
@@ -822,10 +843,21 @@ footer a:hover { color: var(--gold); }
         <h3>Ready to bring Onward12 to your district?</h3>
         <p>Let's talk about what district-wide implementation could look like for your principals — pricing, rollout, and timeline included.</p>
       </div>
-      <a href="mailto:info@onward12.com?subject=District%20Implementation%20Inquiry" class="hero-cta super-cta-btn">
-        Contact Us
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
+      <div class="super-cta-action">
+        <a href="mailto:info@onward12.com?subject=District%20Implementation%20Inquiry" class="hero-cta super-cta-btn">
+          Contact Us
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <p class="super-cta-fallback">
+          or email us directly at
+          <a href="mailto:info@onward12.com?subject=District%20Implementation%20Inquiry" id="ctaEmailText">info@onward12.com</a>
+          <button class="copy-email-btn" id="copyEmailBtn" aria-label="Copy email address" onclick="
+            navigator.clipboard.writeText('info@onward12.com');
+            this.textContent = 'Copied';
+            setTimeout(() => { this.textContent = 'Copy'; }, 1800);
+          ">Copy</button>
+        </p>
+      </div>
     </div>
   </div>
 </section>
